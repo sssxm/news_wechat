@@ -1,0 +1,24 @@
+<view class='navigation' bindtap='onBackToHome'>
+  <image class='navigation-icon' src='/images/back.png'></image>
+  <view class='navigation-text'>快读·资讯</view>
+</view>
+<view class='news-info'>
+  <view class='news-title'>{{title}}</view>
+  <view class='news-details'>
+    <view class='news-source'>{{source}}</view>
+    <view class='news-time'>{{time}}</view>
+    <view class='news-readtime'>阅读  {{readtime}}</view>
+  </view>
+</view>
+
+
+
+<view class='content' wx:for="{{content}}">
+  <view class='news-content-p' wx:if="{{item.type == 'p'}}">
+    {{item.text}}
+  </view> 
+  <view class='news-content-strong' wx:if="{{item.type == 'strong'}}">
+    {{item.text}}
+  </view> 
+    <image class='news-content-image' wx:if="{{item.type == 'image'}}" src= "{{item.src}}"></image>
+</view>
