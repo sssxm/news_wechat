@@ -1,27 +1,12 @@
 <view class="navigationBar">
   <view class='titleAndIcon'>快读·资讯</view>
    <view class='navi-tabs'>
-    <view class='tabs-item' bindtap='couNews' style='color:{{gn}}'>国内</view>
-    <view class='tabs-item' bindtap='intNews' style='color:{{gj}}'>国际</view>
-    <view class='tabs-item' bindtap='ecoNews' style='color:{{cj}}'>财经</view>
-    <view class='tabs-item' bindtap='entNews' style='color:{{yl}}'>娱乐</view>
-    <view class='tabs-item' bindtap='milNews' style='color:{{js}}'>军事</view>
-    <view class='tabs-item' bindtap='spoNews' style='color:{{ty}}'>体育</view>
-    <view class='tabs-item' bindtap='otherNews' style='color:{{other}}'>其他</view>
-  </view>   
-  
-  <!-- <view class='navi-tabs'>
     <view  wx:for="{{list}}">
-      <view class='tabs-item'>{{item}}</view>
+      <view class='tabs-item' bindtap='onTab' data-index='{{index}}' style='color:{{index == selectTab ? "#F0E2CF" : "#F7F7F7"}}'>{{item}}</view>
     </view> 
-  </view> -->
+  </view> 
 
 </view>
-
-
-
-
-
 
 <sroll-view scroll-y  class='content'>
   <view class="top-news" data-id='{{top.id}}' bindtap='onNews'> 

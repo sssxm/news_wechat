@@ -4,6 +4,8 @@ Page({
     newsList: [],
     newsType: "gn",
     list: ["国内", "国际","财经", "娱乐", "军事", "体育", "其他"],
+    typeList: ["gn", "gj", "cj", "yl", "js", "ty", "other"],
+    selectTab: 0
   },
   onLoad(){
     this.getNow();
@@ -28,100 +30,13 @@ Page({
       } 
     })
   },
-  couNews(){
+  onTab(event){
+    let index = event.currentTarget.dataset.index;
     this.setData({
-      newsType: "gn",
-      gn: "#F0E2CF",
-      gj: "#F7F7F7",
-      cj: "#F7F7F7",
-      yl: "#F7F7F7",
-      js: "#F7F7F7",
-      ty: "#F7F7F7",
-      other: "#F7F7F7",
+      newsType: this.data.typeList[index],
+      selectTab: index
     })
-    this.getNow()
-  },
-  intNews() {
-    this.setData({
-      newsType: "gj",
-      gn: "#F7F7F7",
-      gj: "#F0E2CF",
-      cj: "#F7F7F7",
-      yl: "#F7F7F7",
-      js: "#F7F7F7",
-      ty: "#F7F7F7",
-      other: "#F7F7F7",
-    })
-    this.getNow()
-  },
-  ecoNews() {
-    this.setData({
-      newsType: "cj",
-      gn: "#F7F7F7",
-      gj: "#F7F7F7",
-      cj: "#F0E2CF",
-      yl: "#F7F7F7",
-      js: "#F7F7F7",
-      ty: "#F7F7F7",
-      other: "#F7F7F7",
-    })
-    this.getNow()
-  },
-  milNews() {
-    this.setData({
-      newsType: "js",
-      gn: "#F7F7F7",
-      gj: "#F7F7F7",
-      cj: "#F7F7F7",
-      yl: "#F7F7F7",
-      js: "#F0E2CF",
-      ty: "#F7F7F7",
-      other: "#F7F7F7",
-    })
-    this.getNow()
-  },
-  entNews() {
-    this.setData({
-      newsType: "yl",
-      gn: "#F7F7F7",
-      gj: "#F7F7F7",
-      cj: "#F7F7F7",
-      yl: "#F0E2CF",
-      js: "#F7F7F7",
-      ty: "#F7F7F7",
-      other: "#F7F7F7",
-    })
-    this.getNow()
-  },
-  spoNews() {
-    this.setData({
-      newsType: "ty",
-      gn: "#F7F7F7",
-      gj: "#F7F7F7",
-      cj: "#F7F7F7",
-      yl: "#F7F7F7",
-      js: "#F7F7F7",
-      ty: "#F0E2CF",
-      other: "#F7F7F7",
-    })
-    this.getNow()
-  },
-  otherNews() {
-    this.setData({
-      newsType: "other",
-      gn: "#F7F7F7",
-      gj: "#F7F7F7",
-      cj: "#F7F7F7",
-      yl: "#F7F7F7",
-      js: "#F7F7F7",
-      ty: "#F7F7F7",
-      other: "#F0E2CF",
-    })
-    this.getNow()
-  },
-
-  onTabs(event){
-
+    this.getNow();
   },
   onNews(event){
     let id = event.currentTarget.dataset.id;
@@ -132,7 +47,6 @@ Page({
 
   addNewsList(result){
     let newsList = []
-    
     for(let i = 1; i < result.length; i++){
       let item = result[i]
       let time = item.date.substring(11,16)
